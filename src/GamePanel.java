@@ -117,7 +117,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			}
 		}
 		if ((e.getKeyCode() == KeyEvent.VK_UP) && (CURRENT_STATE == GAME_STATE)) {
-			
+			System.out.println("Up pressed");
+				dinosaurY -= 20;
+				//System.out.println("In the qualifying jump block");
 		}
 	}
 

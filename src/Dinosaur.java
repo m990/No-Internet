@@ -3,6 +3,7 @@ import java.awt.Graphics;
 
 public class Dinosaur extends GameObject {
 	int speed;
+	static final int maxHeight = -40;
 	public Dinosaur(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		speed = 5;
