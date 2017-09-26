@@ -18,14 +18,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int GAME_STATE = 1;
 	final int END_STATE  = 2;
 	int CURRENT_STATE = MENU_STATE;
-	int dinosaurY;
+	static int dinosaurY;
 	
 	
 	// Constructor
 	public GamePanel() {
 		timer = new Timer(1000/60, this);
 		dinosaur = new Dinosaur(0, 160, 100, 100);
-		dinosaurY = 160;
+		dinosaurY = 200;
 	}
 	
 	
@@ -37,12 +37,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void drawMenuState(Graphics g) {
 		g.setColor(Color.black);
 		g.drawString("There is no internet connection", 300, 50);
+		g.drawString("•Checking the network cables, modem, and router", 300, 75);
+		g.drawString("•Reconnecting to Wi-Fi", 300, 100);
+		g.drawString("•Running Network Diagnostics", 300, 125);
 	}
 	
 	void drawGameState(Graphics g) {
 		g.setColor(Color.GRAY);
 		g.fillRect(0, 0, NoInternet.width, NoInternet.height);
-		dinosaur.draw(g, dinosaurY);
+		dinosaur.draw(g);
 	}
 	void drawEndState(Graphics g) {
 		g.setColor(Color.BLACK);
@@ -53,7 +56,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		
 	}
 	void updateGameState() {
-		
+		if (dinosaur.onGround == false){
+			dinosaur.jump();
+		}
+		dinosaur.update();
 	}
 	void updateEndState() {
 		
@@ -116,10 +122,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				CURRENT_STATE = MENU_STATE;
 			}
 		}
-		if ((e.getKeyCode() == KeyEvent.VK_UP) && (CURRENT_STATE == GAME_STATE)) {
+		if ((e.getKeyCode() == KeyEvent.VK_UP) && (CURRENT_STATE == GAME_STATE) && (dinosaur.onGround())) {
 			System.out.println("Up pressed");
-				dinosaurY -= 20;
-				//System.out.println("In the qualifying jump block");
+			System.out.println(dinosaurY);
+			dinosaur.jump();
+			System.out.println(dinosaurY);
 		}
 	}
 

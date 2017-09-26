@@ -3,7 +3,7 @@ import javax.swing.JFrame;
 public class NoInternet {
 	JFrame frame;
 	static final int width = 800;
-	static final int height = 300;
+	static int height = 300;
 	GamePanel gamePanel;
 	public static void main(String[] args) {
 		NoInternet noInternet = new NoInternet();
@@ -25,6 +25,7 @@ public class NoInternet {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.addKeyListener(gamePanel);
 		frame.setTitle("No Internet");
+		height -= 25;
 		gamePanel.startGame();
 	}
 }
