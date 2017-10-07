@@ -14,18 +14,21 @@ import org.omg.CORBA.Current;
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer timer;
 	Dinosaur dinosaur;
+	Cactus cactus;
+	Cactus cactus1;
 	final int MENU_STATE = 0;
 	final int GAME_STATE = 1;
 	final int END_STATE  = 2;
 	int CURRENT_STATE = MENU_STATE;
-	int dinosaurY;
+	static int dinosaurY = 180;
 	
 	
 	// Constructor
 	public GamePanel() {
 		timer = new Timer(1000/60, this);
-		dinosaur = new Dinosaur(0, 160, 100, 100);
-		dinosaurY = 160;
+		dinosaur = new Dinosaur(50, 165, 100, 100);
+		cactus = new Cactus(750, 265, 10, 10);
+		cactus1 = new Cactus(1050, 270, 5, 5);
 	}
 	
 	
@@ -43,6 +46,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setColor(Color.GRAY);
 		g.fillRect(0, 0, NoInternet.width, NoInternet.height);
 		dinosaur.draw(g, dinosaurY);
+		cactus.draw(g);
+		cactus1.draw(g);
 	}
 	void drawEndState(Graphics g) {
 		g.setColor(Color.BLACK);
@@ -53,7 +58,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		
 	}
 	void updateGameState() {
-		
+		dinosaur.update();
+		cactus.update();
+		cactus1.update();
 	}
 	void updateEndState() {
 		
@@ -117,7 +124,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			}
 		}
 		if ((e.getKeyCode() == KeyEvent.VK_UP) && (CURRENT_STATE == GAME_STATE)) {
-			
+			System.out.println("In jump key pressed thing");
+			dinosaur.jump();
 		}
 	}
 
