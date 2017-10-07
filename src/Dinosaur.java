@@ -3,14 +3,18 @@ import java.awt.Graphics;
 
 public class Dinosaur extends GameObject {
 	int speed;
+	static final int maxHeight = 80;
+	static boolean reachedTop = false;
+	static boolean onGround = true;
 	public Dinosaur(int x, int y, int width, int height) {
 		super(x, y, width, height);
 	}
-	void draw(Graphics g, int y) {
+	void draw(Graphics g) {
 		g.setColor(Color.RED);
-		g.drawRect(x, y, width, height);
+		g.drawRect(x, GamePanel.dinosaurY, width, height);
 	}
 	void update() { 
+<<<<<<< HEAD
 		if (!onGround()) {
 			System.out.println("In not on ground");
 			GamePanel.dinosaurY += 3;
@@ -24,5 +28,16 @@ public class Dinosaur extends GameObject {
 	}
 	boolean onGround() {
 		return ((GamePanel.dinosaurY + height + 25) >= NoInternet.height);
+=======
+		if (!onGround()){
+			GamePanel.dinosaurY += 2;
+		}
+	}
+	void jump() {
+		GamePanel.dinosaurY -= 10;
+	}
+	boolean onGround(){
+		return ((GamePanel.dinosaurY + height) == NoInternet.height);
+>>>>>>> origin/master
 	}
 }
