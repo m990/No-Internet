@@ -14,22 +14,25 @@ import org.omg.CORBA.Current;
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer timer;
 	Dinosaur dinosaur;
-	Cactus cactus;
-	Cactus cactus1;
 	final int MENU_STATE = 0;
 	final int GAME_STATE = 1;
 	final int END_STATE  = 2;
 	int CURRENT_STATE = MENU_STATE;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	static int dinosaurY = 180;
 =======
 	static int dinosaurY;
 >>>>>>> origin/master
+=======
+	int dinosaurY;
+>>>>>>> parent of 1aa7fbf... Now it jumps, and there are green things
 	
 	
 	// Constructor
 	public GamePanel() {
 		timer = new Timer(1000/60, this);
+<<<<<<< HEAD
 <<<<<<< HEAD
 		dinosaur = new Dinosaur(50, 165, 100, 100);
 		cactus = new Cactus(750, 265, 10, 10);
@@ -38,6 +41,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		dinosaur = new Dinosaur(0, 160, 100, 100);
 		dinosaurY = 200;
 >>>>>>> origin/master
+=======
+		dinosaur = new Dinosaur(0, 160, 100, 100);
+		dinosaurY = 160;
+>>>>>>> parent of 1aa7fbf... Now it jumps, and there are green things
 	}
 	
 	
@@ -59,11 +66,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.fillRect(0, 0, NoInternet.width, NoInternet.height);
 <<<<<<< HEAD
 		dinosaur.draw(g, dinosaurY);
+<<<<<<< HEAD
 		cactus.draw(g);
 		cactus1.draw(g);
 =======
 		dinosaur.draw(g);
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 1aa7fbf... Now it jumps, and there are green things
 	}
 	void drawEndState(Graphics g) {
 		g.setColor(Color.BLACK);
@@ -75,6 +85,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 	void updateGameState() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		dinosaur.update();
 		cactus.update();
 		cactus1.update();
@@ -84,6 +95,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		dinosaur.update();
 >>>>>>> origin/master
+=======
+		
+>>>>>>> parent of 1aa7fbf... Now it jumps, and there are green things
 	}
 	void updateEndState() {
 		
@@ -148,6 +162,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 <<<<<<< HEAD
 		if ((e.getKeyCode() == KeyEvent.VK_UP) && (CURRENT_STATE == GAME_STATE)) {
+<<<<<<< HEAD
 			System.out.println("In jump key pressed thing");
 			dinosaur.jump();
 =======
@@ -157,6 +172,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			dinosaur.jump();
 			System.out.println(dinosaurY);
 >>>>>>> origin/master
+=======
+			
+>>>>>>> parent of 1aa7fbf... Now it jumps, and there are green things
 		}
 	}
 

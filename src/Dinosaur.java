@@ -8,12 +8,14 @@ public class Dinosaur extends GameObject {
 	static boolean onGround = true;
 	public Dinosaur(int x, int y, int width, int height) {
 		super(x, y, width, height);
+		speed = 5;
 	}
 	void draw(Graphics g) {
 		g.setColor(Color.RED);
 		g.drawRect(x, GamePanel.dinosaurY, width, height);
 	}
 	void update() { 
+<<<<<<< HEAD
 <<<<<<< HEAD
 		if (!onGround()) {
 			System.out.println("In not on ground");
@@ -39,5 +41,11 @@ public class Dinosaur extends GameObject {
 	boolean onGround(){
 		return ((GamePanel.dinosaurY + height) == NoInternet.height);
 >>>>>>> origin/master
+=======
+		
+	}
+	void jump() {
+		this.y += 5;
+>>>>>>> parent of 1aa7fbf... Now it jumps, and there are green things
 	}
 }
